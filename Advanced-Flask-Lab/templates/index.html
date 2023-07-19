@@ -13,12 +13,12 @@
 
 				<!-- Header -->
 					<header id="header">
-						<span class="avatar"><img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="" /></span>
+						<span class="avatar"><img src="{{image}}" alt="" /></span>
 
-            <h1>Description</h1>
+            <h1>{{bio}}</h1>
             <br>
             <!-- About me button -->
-            <a href="#"><button style="color:white;width:40%" >More about me</button></a>
+            <a href="{{url_for('about')}}"><button style="color:white;width:40%" >More about me</button></a>
             <!--  -->
             <br> <br>
 						<ul class="icons">
@@ -38,22 +38,31 @@
                 
                 <div>
                       <a href="">
-                        <img src="static/images/thumbs/01.jpg" alt="" />
-                        <h3>Caption... blah blah blah</h3>
+                        <img src="{{url_for('static' ,filename='images/thumbs/01.jpg')}}" alt="" />
+                        <h3>Our favorite alumni - Mr. Bean the Great</h3>
                       </a>
                 
                       <a href="">
-                        <img src="url_for('static',filename='images/thumbs/02.jpg')" alt="" />
-                        <h3>Caption... blah blah blah</h3>
+                        <img src="{{url_for('static',filename='images/thumbs/02.jpg')}}" alt="" />
+                        <h3>Andrei after turning DU sessions into therapy</h3>
                       </a>
                 </div>    
                 <div>
                   <a href="">
                         <img src="{{url_for('static',filename='images/thumbs/03.jpg')}}" alt="" />
-                        <h3>Caption... blah blah blah</h3>
+                        <h3>Y2s on the way home after seeing the Advanced Flask Lab</h3>
                       </a>
                 </div>  
-
+                <ul></ul>
+	                {% for post in feed%}
+	                <div>
+                  <a href="">
+                       <img src="{{post}}" alt="" />
+                        <h3>{{feed[post]}}</h3>
+                      </a>
+                </div>  
+                {% endfor %}
+          
 							</section>
 
 					</section>
